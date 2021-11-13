@@ -1,0 +1,28 @@
+
+
+.slide {
+    border-bottom: 1px solid darkgray;
+}
+
+.slideImage {
+    border: 1px solid darkgreen;
+    background-color: darkgray;
+}
+
+.bidButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgContainer {
+    color: darkgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addButton {
+    border-radius: 50%;
+    font-size: x-large;
+}

@@ -1,11 +1,14 @@
 export interface IPlayer {
-    id: number,
+    _id: number,
     firstName: string;
     lastName: string;
     fullName: string;
     jerseyNumber: number;
     team: string;
-    teamAbbreviation: string;
+    teamAbbr: string;
     position: string;
     injuryStatus: string;
+    percentOwned: number;
+    createdAt?: string;
+    updatedAt?: string;
 }
