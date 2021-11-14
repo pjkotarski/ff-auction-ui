@@ -8,7 +8,6 @@ export interface PlayerSlideProps {
     addButton: boolean;
 };
 
-//        <li className="container-fluid d-flex list-group-item justify-content-between align-items-center" key={player._id}>
 export const PlayerSlide = (props: PlayerSlideProps) => {
 
     const { player, addButton } = props;
