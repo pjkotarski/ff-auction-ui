@@ -1,29 +1,25 @@
-import React from 'react'
-import { IPlayer } from '../../types/IPlayer'
-import { PlayerSlide } from '../PlayerSlideComponent/PlayerSlide'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from './PlayersContainer.module.css';
-import useSWRInfinite from 'swr/infinite';
-import { PlayersAPI } from '../../shared/api/players.api';
-
-const getKey = (pageIndex, previousPageData) => {
-  if (previousPageData && !previousPageData.length) return null
-  return `/api/players/get-players/${pageIndex}`;
-}
+import { useInWindow } from '../../shared/hooks/useInWindow.hook';
+import { PlayerGroup } from '../PlayerGroupComponent/PlayerGroupComponent';
 
 export const PlayersContainer = () => {
 
-    const { data, error, size ,setSize } = useSWRInfinite(getKey, PlayersAPI.getPlayersByPage);
+    const [page, setPage] = useState(0);
+    const loadMoreRef = useRef();
+    const shouldLoadMore = useInWindow(loadMoreRef);
 
-    if (error) return <div>There was an error</div>;
-    if (!data) return <div>Loading</div>
+    useEffect(() => setPage(page+1), [shouldLoadMore]);
+
+    const playerGroups = [];
+    for (let i=0; i <= page; i++ ) {
+      playerGroups.push(<PlayerGroup page={i} key={i}/>)
+    }
 
     return (
         <div className={`d-md-inline-block ${styles.playersContainer}`}>
-          { data.map((playersPage: IPlayer[]) => {
-            return playersPage.map(player => <PlayerSlide player={player} addButton={true} key={player._id}/>);
-          })}
-
-          <button onClick={() => setSize(size + 1)}>Load More</button>
+          {playerGroups}
+          <div className={styles.nextDiv} ref={loadMoreRef}></div>
         </div>
     )
 }

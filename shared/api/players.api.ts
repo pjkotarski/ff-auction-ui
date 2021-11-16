@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { IPlayer } from '../../types/IPlayer';
+import { IPlayer } from '../types/IPlayer';
 
 export const PlayersAPI = {
 

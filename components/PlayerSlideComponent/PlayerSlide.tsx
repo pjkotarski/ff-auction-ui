@@ -1,6 +1,6 @@
 import React from "react";
-import { IPlayer } from "../../types/IPlayer"
-import { playerImageHelper } from "../../utils/player-image-helper"
+import { IPlayer } from "../../shared/types/IPlayer"
+import { playerImageHelper } from "../../shared/utils/player-image-helper"
 import styles from './PlayerSlide.module.css';
 
 export interface PlayerSlideProps {

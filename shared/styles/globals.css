@@ -15,10 +15,6 @@ a {
   box-sizing: border-box;
 }
 
-body {
-  color: white;
-}
-
-div {
+div { 
   color: white;
 }
