@@ -1,5 +1,8 @@
+@import '../../shared/styles/colors.scss';
+
 .slide {
     border-bottom: 1px solid darkgray;
+    background-color: $t-black;
 }
 
 .slideImage {

@@ -1,10 +1,9 @@
 import { Template } from '../components/Template/Template/Template';
-import { Auction } from '../components/Auction/Auction';
 
-export default function Home() {
+export default function AboutPage() {
     return (
         <Template>
-            <Auction/>
+            <h1>About</h1>
         </Template>
     )
 }

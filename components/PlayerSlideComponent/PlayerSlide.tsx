@@ -1,7 +1,8 @@
 import React from "react";
 import { IPlayer } from "../../shared/types/IPlayer"
 import { playerImageHelper } from "../../shared/utils/player-image-helper"
-import styles from './PlayerSlide.module.css';
+import { ImageComponent } from '../shared/ImageComponent/ImageComponent';
+import styles from './PlayerSlide.module.scss';
 
 export interface PlayerSlideProps {
     player: IPlayer;
@@ -18,9 +19,11 @@ export const PlayerSlide = (props: PlayerSlideProps) => {
 
     return (
         <div className={`container-fluid row ${styles.slide}`} key={player._id}>
-            <div className={`col ${styles.imgContainer}`}>
-                <img src={playerImageHelper(player._id)} className={`rounded-circle img-response ${styles.slideImage}`}/>
-            </div>  
+
+            <div className="col">
+                <ImageComponent src={playerImageHelper(player._id)}/>
+            </div>
+
             <div className="col pt-2">
                 <div className="row">
                     <p className="mb-0" >{player.firstName} {player.lastName}</p>

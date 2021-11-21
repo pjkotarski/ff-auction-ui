@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import styles from './PlayersContainer.module.css';
+import styles from './PlayersContainer.module.scss';
 import { useInWindow } from '../../shared/hooks/useInWindow.hook';
 import { PlayerGroup } from '../PlayerGroupComponent/PlayerGroupComponent';
+import { PlayersHeaderComponent } from '../PlayersHeaderComponent/PlayerHeaderComponent';
 
 export const PlayersContainer = () => {
 
@@ -17,9 +18,11 @@ export const PlayersContainer = () => {
     }
 
     return (
-        <div className={`d-md-inline-block ${styles.playersContainer}`}>
-          {playerGroups}
-          <div className={styles.nextDiv} ref={loadMoreRef}></div>
-        </div>
+      <div className={`${styles.playersContainer}`}>
+        <PlayersHeaderComponent/>
+        {playerGroups}
+        <div className={styles.nextDiv} ref={loadMoreRef}></div>
+      </div>
+
     )
 }

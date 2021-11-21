@@ -1,0 +1,13 @@
+@import '../../shared/styles/colors.scss';
+
+.bidsContainer {
+    flex-grow: 1;
+    border-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 20px;
+    margin: 10px;
+    overflow: scroll;
+
+}

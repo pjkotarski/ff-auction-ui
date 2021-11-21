@@ -1,0 +1,17 @@
+@import './colors.scss';
+
+.sharedButton {
+    color: white;
+    font-size: 20px;
+    background-color: $t-green;
+    max-width: 125px;
+    border: none;
+    border-radius: 5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.linkStyle {
+    color: $t-green;
+    margin: 5px;
+}

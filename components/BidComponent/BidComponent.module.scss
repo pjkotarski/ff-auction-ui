@@ -1,0 +1,59 @@
+@import '../../shared/styles/colors.scss';
+
+.bidContainer { 
+    overflow: auto;
+}
+
+.bid {      
+    color: white;
+    padding: 18px 20px;
+    line-height: 26px;
+    font-size: 16px;
+    border-radius: 12px;
+    width: 40%;
+    position: relative;
+    margin-bottom: 5px;
+
+    .bidOwner {
+        
+        .bidderTeam {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 0px;
+        }
+
+        .bidderName {
+            font-size: 16px;
+            margin-top: 0px;
+        }
+    }
+
+    .bidAmount {
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+    }
+  }
+
+.my {
+    float: right;
+}
+
+.other {
+    float: left;
+}
+
+.otherBid {
+    background-color: $t-purple;
+}
+
+.myBid {
+    background-color: $t-green;
+    float: right;
+}
+
+.timeContainer {
+    color: darkgray;
+    clear: both;
+}
+

@@ -2,8 +2,9 @@ import { useState } from 'react';
 import useSWR from 'swr'
 import { PlayersAPI } from '../../shared/api/players.api'
 import { IPlayer } from '../../shared/types/IPlayer';
+import { BidHeaderComponent } from '../BidHeaderComponent/BidHeaderComponent';
 import { PlayerSlide } from '../PlayerSlideComponent/PlayerSlide';
-import styles from './PlayerGroupComponent.module.css';
+import styles from './PlayerGroupComponent.module.scss';
 
 export interface PlayerGroupProps {
     page: number;
@@ -27,7 +28,7 @@ export const PlayerGroup = ({ page } : PlayerGroupProps) => {
             </div>
             : 
             <>
-                {data.map((player: IPlayer) => <PlayerSlide player={player} addButton={true} key={player._id}/>)}
+                {data.map((player: IPlayer) => <BidHeaderComponent player={player} addButton={true} key={player._id}/>)}
             </>    
             }
         </>

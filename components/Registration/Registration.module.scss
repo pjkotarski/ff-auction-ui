@@ -1,0 +1,41 @@
+@import '../../shared/styles/colors.scss';
+@import '../../shared/styles/shared.scss';
+
+.registrationBackground{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $t-black;
+    height: 100vh;
+    width: 100vw;
+
+    .registrationContainer {
+        max-height: 1500px;
+        width: 800px;
+        background-color: $t-b-black;
+        padding: 30px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+    
+        .formSection {
+            display: inline-flex;
+            justify-content: flex-start;
+            margin: 10px;
+        
+            .formInput {
+                flex-grow: 1;
+                margin-left: 20px;
+            }
+        
+        }
+
+    }
+
+    .backToLogin {
+        margin-top: 10px;
+    }
+
+
+}
