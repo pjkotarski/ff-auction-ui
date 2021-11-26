@@ -1,13 +1,20 @@
 @import '../../shared/styles/colors.scss';
 @import '../../shared/styles/shared.scss';
+@import '../../shared/styles/breakpoints.scss';
 
 .loginContainer {
     display: flex;
+    height: 100%;
+    width: 100%;
 
-    .mediaContent {
-        background-color: black;
-        height: 100vh;
-        flex-grow: 1.5;
+    @include md {
+
+        .mediaContent {
+            background-color: black;
+            height: 100vh;
+            flex-grow: 1.5;
+        }
+        
     }
 
     .loginFormContainer {
@@ -17,32 +24,25 @@
         background-color: $t-b-black;
         height: 100vh;
         flex-grow: 2;
+        padding-left: 10vw;
 
         .loginForm {
             display: flex;
             flex-direction: column;
             justify-self: center;
-            margin-left: 30px;        
-            
-            .loginInput {
-                max-width: 500px;
-            }
-        
         }
 
         .loginButton {
             @extend .sharedButton;
-            margin-left: 30px;
-            margin-top: 20px;
+            margin-top: 1vh;
         }
     
         .loginText {
             display: flex;
-            font-size: 20px;
-            margin-left: 30px;
-            margin-top: 30px;
+            font-size: 1rem;
+            margin-top: 2vh;
             .link {
-                margin-left: 7px;
+                margin-left: .3rem;
                 color: $t-green;
             }
         }

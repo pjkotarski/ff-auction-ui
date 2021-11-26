@@ -28,7 +28,10 @@ export const PlayerGroup = ({ page } : PlayerGroupProps) => {
             </div>
             : 
             <>
-                {data.map((player: IPlayer) => <BidHeaderComponent player={player} addButton={true} key={player._id}/>)}
+                {data.map((player: IPlayer) => { 
+                        return <BidHeaderComponent player={player} addButton={true} key={player._id}/> 
+                    }
+                    )}
             </>    
             }
         </>

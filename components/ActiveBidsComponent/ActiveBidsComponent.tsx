@@ -3,6 +3,7 @@ import { IPlayer } from '../../shared/types/IPlayer';
 import { BidComponent } from '../BidComponent/BidComponent';
 import { BidHeaderComponent } from '../BidHeaderComponent/BidHeaderComponent';
 import { BidInputComponent } from '../BidInputComponent/BidInputComponent';
+import { PlayerCard } from '../PlayerCard/PlayerCard.component';
 import styles from './ActiveBidsComponent.module.scss';
 
 export interface ActiveBidsComponentProps {
@@ -11,15 +12,25 @@ export interface ActiveBidsComponentProps {
 
 export const ActiveBidsElement = ({ player }: ActiveBidsComponentProps) => {
     
+    const [showBids, setShowBids] = useState(false);
+
+    const toggleShowBids = () => {
+        setShowBids(!showBids);
+    };
+
     return (
         <div className={`${styles.bidsComponent}`}>
-        
-            <BidHeaderComponent player={player} sold={true}/>
-            <div className={`float-right ${styles.bidHistory}`}>
-                <BidComponent myBid={false}/>
-                <BidComponent myBid={true}/>
-            </div>            
-            <BidInputComponent/>
+            <PlayerCard player={player} toggleBidButton={toggleShowBids} isShowingBids={showBids}/>
+            { showBids? 
+                <>
+                    <div className={`float-right ${styles.bidHistory}`}>
+                        <BidComponent myBid={false}/>
+                        <BidComponent myBid={true}/>
+                    </div>            
+                    <BidInputComponent/>
+                </> : <></>
+        }
+  
         </div>
     )
 }

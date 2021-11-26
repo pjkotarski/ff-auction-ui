@@ -1,21 +1,54 @@
 @import '../../../shared/styles/colors.scss';
+@import '../../../shared/styles/breakpoints.scss';
 
-.inputContainer {
+.inputContainer {    
+
+    display: flex;
+    flex-wrap: wrap;
+    @include xs {
+        max-width: 95%;
+    }
+
+    @include md {
+        max-width: 70%;
+    }
 
     .label {
         color: white;
         font-size: 20px;
         margin-bottom: 3px;
+        flex: 100%;
     }
 
     .input {
-        border: 1px solid $t-green;
-        border-radius: 5px;
-        font-size: 20px;
-        padding-left: 10px;
-        margin-bottom: 20px;
-        margin-right: 30px;
-        width: 100%;
+        font-size: 1rem;
+        padding-left: 5px;
+        margin-bottom: 3vh;
+        margin-right: 1vw;
+        flex-grow: 1;
+
+        @include xs { 
+            border: none;
+            background-color: $t-b-black-o;
+            border-bottom: 1px solid $t-green;
+            color: white;
+
+            ::placeholder {
+                color: white;
+            }
+            
+        }
+
+        @include md {
+            border-radius: 5px;
+            border: .1vw solid $t-green;
+            background-color: white;
+            color: black;
+            ::placeholder {
+                color: black;
+                opacity: 1;
+            }
+        }
     }
 
     .input:focus {

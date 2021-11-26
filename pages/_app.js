@@ -10,7 +10,16 @@ function MyApp({ Component, pageProps }) {
     import("bootstrap/dist/js/bootstrap");
   }, []);
 
-  return <Component {...pageProps} />
+  return (
+    <>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      </head>
+      <body>
+        <Component {...pageProps} />
+      </body>
+    </>
+  )
 }
 
 export default MyApp

@@ -7,7 +7,6 @@ export const Login = () => {
     return (
         <div className={styles.loginContainer}>
             <div className={styles.mediaContent}>
-
             </div>
             <div className={styles.loginFormContainer}>
                 <Title/>

@@ -1,0 +1,56 @@
+@import '../../shared/styles/colors.scss';
+@import '../../shared/styles/shared.scss';
+@import '../../shared/styles/breakpoints.scss';
+
+
+.infoCard {
+    display: flex;
+    flex-direction: column;
+    background-color: $t-black;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid white;
+    
+    .top {
+    
+        display: inline-flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $t-white;
+        margin-bottom: 10px;
+        padding: 10px;
+
+        .balanceLabel {
+            font-weight: bold;
+            font-size: 1.6rem;
+        }
+
+        .balance {
+            font-weight: bold;
+            font-size: 1.6rem;
+            color: $t-green;
+        }
+    
+    }
+
+    .activeBids {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        .ongoingBid {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.5rem;
+            border-bottom: 2px solid $t-b-black;
+            align-content: center;
+
+            .bidDetails {
+                margin-bottom: 0px;
+                margin-top: 5px;
+            }
+        }
+    }
+
+
+}

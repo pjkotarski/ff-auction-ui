@@ -9,13 +9,14 @@
     background-color: $t-b-black;
     padding-top: 10px;
     padding-bottom: 10px;
+    border-radius: 5px;
     .bidInputPrepend {
         background: transparent;
 
         .prependSpan {
             font-size: 20px;
             background: transparent;
-            color: $t-purple;
+            color: $t-green;
             border: none;
         }
     }
@@ -28,7 +29,7 @@
         border: 0;
         outline: 0;
         background: transparent;
-        border-bottom: 2px solid $t-purple;
+        border-bottom: 2px solid $t-green;
         font-size: 20px;
         color: $t-white;
         text-align: center;
@@ -36,13 +37,9 @@
 
     .submitBid {
         font-size: 20px;
-        background-color: $t-purple;
+        background-color: $t-green;
         color: $t-white;
         border-radius: 5px;
     }
 
-    .submitBid:hover {
-        background-color: $t-white;
-        color: $t-purple;
-    }
 }
