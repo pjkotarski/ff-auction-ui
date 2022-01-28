@@ -1,6 +1,16 @@
 @import '../../shared/styles/colors.scss';
+@import '../../shared/styles/breakpoints.scss';
 
 .playersContainer {
+
+    @include xs {
+        display: none;
+    }
+
+    @include md {
+        display: block;
+    }
+
     margin: 10px;
     border-radius: 5px;
     height: 100vh;

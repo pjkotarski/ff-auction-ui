@@ -1,0 +1,86 @@
+@import '../../shared/styles/colors.scss';
+@import '../../shared/styles/breakpoints.scss';
+@import '../../shared/styles/shared.scss';
+
+
+.cardContainer { 
+    align-self: flex-start;
+    padding: 5px;
+    background-color: $t-b-black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    .lineOne {
+        display: inline-flex;
+        gap: 10px;
+        box-sizing: border-box;
+        margin-right: 5px;
+
+        .playerImage {
+            margin: 1rem;
+        }
+
+        .playerInfo {
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            flex: 1;
+            .playerName {
+                margin-bottom: 1px;
+                font-weight: bold;
+                font-size: 1.5rem;
+            }
+
+
+            .playerDetails {
+                display: inline-flex;
+                gap: 10px;
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .lineTwo { 
+        display: inline-flex;
+        justify-content: flex-end;
+        align-items: center;
+        box-sizing: border-box;
+        margin-bottom: 3px;
+
+        margin-right: 2rem;
+
+        .leadingBidder {
+            margin-bottom: 0px;
+            font-size: 1.3rem;
+        }
+
+        .user {
+            color: $t-green;
+        }
+
+        .other {
+            color: $red;
+        }
+    
+        .bidButton {
+        
+            border: none;
+            border-radius: 4px;
+            color: $t-white;
+            min-height: 4vh;
+            min-width: 7vh;
+
+        }
+
+        .bGreen {
+            background-color: $t-green;
+        }
+
+        .bRed {
+            background-color: $red;
+        }
+    }
+
+}

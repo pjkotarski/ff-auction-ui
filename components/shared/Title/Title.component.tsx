@@ -2,9 +2,13 @@ import { faDollarSign, faFootballBall } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './Title.module.scss';
 
-export const Title = () => {
+interface TitleProps {
+    className?: string;
+}
+
+export const Title = ({ className='' }: TitleProps) => {
     return (
-        <div className={styles.titleContainer}>
+        <div className={`${styles.titleContainer} ${className}`}>
                 <div className={styles.titleIcon}>
                     <FontAwesomeIcon icon={faDollarSign} size="2x"/>
                 </div>

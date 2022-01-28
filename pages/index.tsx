@@ -1,10 +1,7 @@
-import { Template } from '../components/Template/Template/Template';
-import { Auction } from '../components/Auction/Auction';
+import { Login } from '../components/Login/Login.component';
 
 export default function Home() {
     return (
-        <Template>
-            <Auction/>
-        </Template>
+        <Login/>
     )
 }

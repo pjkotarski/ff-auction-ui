@@ -1,5 +1,6 @@
 @import '../../shared/styles/colors.scss';
 @import '../../shared/styles/shared.scss';
+@import '../../shared/styles/breakpoints.scss';
 
 .registrationBackground{
     display: flex;
@@ -11,31 +12,73 @@
     width: 100vw;
 
     .registrationContainer {
-        max-height: 1500px;
-        width: 800px;
+
+        @include xs {
+            height: 100vh;
+            width: 100vw;
+            overflow-y: scroll;
+        }
+
+        @include md {
+            max-height: 80%;
+            max-width: 70%;
+            overflow-y: hidden;
+        }
+        
         background-color: $t-b-black;
-        padding: 30px;
-        border-radius: 10px;
+        padding-top: 1vh;
+        padding-left: 10vw;
+        padding-right: 5vw;
+        border-radius: 1vh;
         display: flex;
         flex-direction: column;
-    
+        justify-content: center;
+
+        .appTitle {
+            margin-bottom: 1vh;
+        }
+
+        .formTitle {
+            font-size: 1.5rem;
+        }
+
         .formSection {
-            display: inline-flex;
-            justify-content: flex-start;
-            margin: 10px;
+
+            @include xs { 
+                display: flex;
+                flex-direction: column;
+
+                .sectionTitle { 
+                    display: none;
+                }
+            }
+
+            @include md { 
+                display: flex;
+                justify-content: flex-start;
+                flex-direction: row;
+
+                .sectionTitle { 
+                    display: inline;
+                    margin-right: 1vw;
+                }
+            
+                .formInput {
+                    flex-grow: 1;
+                }
+            }
+
+            .sectionTitle { 
+                color: white;
+            }
         
             .formInput {
                 flex-grow: 1;
-                margin-left: 20px;
             }
-        
         }
-
     }
 
     .backToLogin {
         margin-top: 10px;
     }
-
-
 }

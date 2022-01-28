@@ -14,7 +14,6 @@ export const PlayerSlide = (props: PlayerSlideProps) => {
     const { player, addButton } = props;
 
     const onBidClick = (e: React.MouseEvent) => {
-        console.log('BUTTON CLICKED', e)
     }
 
     return (

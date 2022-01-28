@@ -1,32 +1,59 @@
 import moment from 'moment';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { DemoUserContext, PlayerBidsContext } from '../../shared/hooks/contexts';
 import styles from './TimerComponent.module.scss';
 
-export interface TimerComponentProps {
-    expTime: Date;
-}
+export const TimerComponent = ()  => {
+	
+	const { setRefreshInterval, manuallyRefreshBids } = useContext(PlayerBidsContext);
+	const { demoUser, setIsRunningOnUser, setExpirationTimeOnUser } = useContext(DemoUserContext);
+	const [timeLeft, setTimeLeft] = useState(null);
 
-export const TimerComponent = ({ expTime }: TimerComponentProps)  => {
-    
-    const getTimeLeft = () => {
-        const expMoment = moment(expTime, 'HH:mm:ss');
-        const nowMoment = moment(new Date(), 'HH:mm:ss');
+	const intervalRef = useRef(null);
 
-        return moment(expMoment.diff(nowMoment)).format('m:ss');
-    }
+	const checkExpired = (expiration_time) => {
+		return moment(expiration_time).isBefore(moment());
+	}
 
-    const [timeLeft, setTimeLeft] = useState(getTimeLeft());
+	const getTimeLeft = (expiration_time) => {
+		if (expiration_time) {
 
+			if (moment(expiration_time).isBefore(moment())) {
+				manuallyRefreshBids();
+				setRefreshInterval(0);
+				return null;
+			}
 
-    useEffect(() => {
-        setTimeout(() => {
-            setTimeLeft(getTimeLeft());
-        }, 1000);
-    });
+			const expMoment = moment(expiration_time, 'HH:mm:ss');
+			const nowMoment = moment(new Date(), 'HH:mm:ss');
+			return moment(expMoment.diff(nowMoment)).format('m:ss');
+		} 
+		return null;
+	}
 
-    return (
-        <div>
-            {timeLeft}
-        </div>
-    )
+	useEffect(() => {
+
+		if (demoUser.expiration_time && !checkExpired(demoUser.expiration_time)) {
+
+			setTimeLeft(getTimeLeft(demoUser.expiration_time));
+			
+			intervalRef.current = setInterval(() => {
+				
+				if (checkExpired(demoUser.expiration_time)) {
+					setExpirationTimeOnUser(null);
+					setIsRunningOnUser(false);
+					clearInterval(intervalRef.current);
+				}
+
+				setTimeLeft(getTimeLeft(demoUser.expiration_time));
+			
+			}, 1000);
+		}
+	}, [demoUser.expiration_time]);
+
+	return (
+		<>
+			{ !!timeLeft && <h5 className={styles.timer}>{ timeLeft }</h5>}
+		</>
+	)
 }

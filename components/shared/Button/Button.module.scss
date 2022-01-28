@@ -1,0 +1,17 @@
+@import '../../../shared/styles/colors.scss';
+@import '../../../shared/styles/shared.scss';
+@import '../../../shared/styles/breakpoints.scss';
+
+.button {
+    color: $t-white;
+    border-radius: 3px;
+    border: none;
+}
+
+.primary {
+    background-color: $t-green;
+}
+
+.secondary {
+    background-color: $red;
+}

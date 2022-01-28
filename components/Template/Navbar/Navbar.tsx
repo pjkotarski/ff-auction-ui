@@ -2,7 +2,6 @@ import { faDollarSign, faFootballBall, faHammer, faUserCircle } from '@fortaweso
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/dist/client/router';
 import { Title } from '../../shared/Title/Title.component';
-import Link from 'next/Link';
 import styles from './Navbar.module.scss';
 
 export const Navbar = () => {

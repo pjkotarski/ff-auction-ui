@@ -1,3 +1,5 @@
+import { IBid } from './IBid';
+
 export interface IPlayer {
     _id: number,
     firstName: string;
@@ -11,4 +13,5 @@ export interface IPlayer {
     percentOwned: number;
     createdAt?: string;
     updatedAt?: string;
+    bids?: IBid[];
 }
