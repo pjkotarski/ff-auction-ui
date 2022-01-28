@@ -1,0 +1,39 @@
+@import '../../shared/styles/colors.scss';
+@import '../../shared/styles/shared.scss';
+@import '../../shared/styles/breakpoints.scss';
+
+
+.addLeagueForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; 
+}
+
+.input {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: space-between;
+
+    .button {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+.foundLeagueContainer {
+    margin-top: 4vh;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alertMessage {
+    margin-top: 5vh;
+}

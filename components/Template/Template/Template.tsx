@@ -1,18 +1,14 @@
 import { ReactNode } from "react"
-import { Navbar } from '../Navbar/Navbar';
-import styles from './Template.module.scss';
+import { Nav } from '../Nav/Nav.component';
 export interface TemplateProps {
   children: ReactNode;  
 }
 
 export const Template = ({ children }: TemplateProps) => {
     return (
-
       <>
-        <Navbar/>
-        <div className={styles.appBody}>
-          { children }
-        </div>
+        <Nav/>
+        { children }
       </>
 
     )

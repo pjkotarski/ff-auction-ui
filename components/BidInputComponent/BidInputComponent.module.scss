@@ -1,45 +1,22 @@
 @import '../../shared/styles/colors.scss';
 
-.bidInputContainer {
+.bidInput {
+	margin-right: 20px;
+	margin-left: 5px;
+	width: 80px;
+	background: transparent;
+	border: 0;
+	outline: 0;
+	background: transparent;
+	border-bottom: 2px solid $t-green;
+	font-size: 20px;
+	color: $t-white;
+	text-align: center;
+}
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    background-color: $t-b-black;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 5px;
-    .bidInputPrepend {
-        background: transparent;
-
-        .prependSpan {
-            font-size: 20px;
-            background: transparent;
-            color: $t-green;
-            border: none;
-        }
-    }
-
-    .bidInput {
-        margin-right: 20px;
-        margin-left: 5px;
-        width: 80px;
-        background: transparent;
-        border: 0;
-        outline: 0;
-        background: transparent;
-        border-bottom: 2px solid $t-green;
-        font-size: 20px;
-        color: $t-white;
-        text-align: center;
-    }
-
-    .submitBid {
-        font-size: 20px;
-        background-color: $t-green;
-        color: $t-white;
-        border-radius: 5px;
-    }
-
+.submitBid {
+	font-size: 20px;
+	background-color: $t-green;
+	color: $t-white;
+	border-radius: 5px;
 }

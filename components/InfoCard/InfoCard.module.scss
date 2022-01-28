@@ -39,18 +39,43 @@
         justify-content: center;
         
         .ongoingBid {
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: auto 7rem 3rem;
             font-size: 1.5rem;
             border-bottom: 2px solid $t-b-black;
-            align-content: center;
+            column-gap: 20px;
+            padding-top: 10px;
+            padding-bottom: 5px;
 
             .bidDetails {
                 margin-bottom: 0px;
                 margin-top: 5px;
             }
         }
+
+        .userBid {
+            color: $t-green;
+        }
+
+        .oppBid {
+            color: $red;
+        }
     }
 
+    .soldSignedText {
+        border-radius: 3px;
+        margin-bottom: 0px;
+        text-align: center;
+    }
+
+    .signed {
+        color: $t-green;
+        border: 2px solid $t-green;
+    }
+
+    .sold { 
+        color: $red;
+        border: 2px solid $red;
+    }
 
 }

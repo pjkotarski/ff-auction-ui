@@ -1,26 +1,42 @@
+import moment from 'moment';
+import { useContext, useEffect, useState } from 'react';
+import { DemoUserContext } from '../../shared/hooks/contexts';
+import { IDemoBid } from '../../shared/types/demo/IDemoBid';
+import { IBid } from '../../shared/types/IBid';
 import styles from './BidComponent.module.scss';
 
 export interface IBidComponentProps {
-    myBid: boolean;
+  bid: IDemoBid;
 }
 
-export const BidComponent = ({ myBid }: IBidComponentProps) => {
-    return (
-        <div className={`${styles.bidContainer}`}>
-            <div className={`${styles.bid} ${myBid? styles.myBid : styles.otherBid} ${myBid? styles.my : styles.other}`}>
-                
-                <div className={`${styles.bidOwner}`}>
-                    <p className={`${styles.bidderTeam}`}>The Senate</p>
-                    <p className={`${styles.bidderName}`}>Nick Tanner</p>
-                </div>
+export const BidComponent = ({ bid }: IBidComponentProps) => {
 
-                <p className={`${styles.bidAmount}`}>$45</p>
 
-            </div>
+	const { demoUser } = useContext(DemoUserContext);
+	const [isMyBid, setIsMyBid] = useState(false);
 
-            <div className={`${styles.timeContainer} ${myBid? styles.my : styles.other}`}>
-                <p className={`${myBid? styles.my : styles.other}`}>4:45 PM</p>
-            </div>
-        </div>
-    )
+	useEffect(() => {
+		if (bid.user_id === demoUser._id) {
+			setIsMyBid(true);
+		}
+	}, [demoUser]);
+
+	const getCleanDate = (time: Date) => {
+		return moment(time).format('h:mm a');
+	}
+
+	return (
+		<div className={`${styles.bidContainer}`}>
+			<div className={`${styles.bid} ${isMyBid? styles.myBid : styles.otherBid} ${isMyBid? styles.my : styles.other}`}>
+					
+				<p className={`${styles.bidderName}`}>{bid.bidderName}</p>
+
+				<p className={`${styles.bidAmount}`}>${bid.amount}</p>
+			</div>
+
+			<div className={`${styles.timeContainer} ${isMyBid? styles.my : styles.other}`}>
+				<p className={`${isMyBid? styles.my : styles.other}`}>{getCleanDate(bid.createdAt)}</p>
+			</div>
+		</div>
+	)
 }

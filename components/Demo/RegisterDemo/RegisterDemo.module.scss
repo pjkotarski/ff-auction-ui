@@ -1,0 +1,26 @@
+@import '../../../shared/styles/colors.scss';
+@import '../../../shared/styles/shared.scss';
+@import '../../../shared/styles/breakpoints.scss';
+
+.registerDemoContainer {
+  width: 100%;
+  height: 100%;
+  background-color: $t-black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+
+  .registerDemoInner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: $t-b-black;
+  }
+
+}

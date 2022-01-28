@@ -1,0 +1,18 @@
+@import '../../shared/styles/colors.scss';
+@import '../../shared/styles/shared.scss';
+@import '../../shared/styles/breakpoints.scss';
+
+.alertContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.errorText { 
+    color: $red;
+    margin-bottom: 0px;
+}
+
+.successText { 
+    color: $t-green;
+}

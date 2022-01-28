@@ -2,6 +2,8 @@
 
 .bidsComponent { 
   
+
+  width: 22rem;
   height: max-content;
   border-radius: 5px;
   border: 1px solid $t-white;
@@ -16,5 +18,34 @@
     color: black;
   }
 
+}
 
+.inputContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: $t-b-black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  .bidInputPrepend {
+    background: transparent;
+
+    .prependSpan {
+      font-size: 20px;
+      background: transparent;
+      color: $t-green;
+      border: none;
+    }
+  }
+}
+
+.soldText {
+  color: $red;
+  border: 2px solid $red;
+  font-size: 1.75rem;
+  border-radius: 3px;
+  padding: 0 0.5rem;
+  margin: 0px;
 }

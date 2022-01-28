@@ -24,27 +24,10 @@
         background-color: $t-b-black;
         height: 100vh;
         flex-grow: 2;
-        padding-left: 10vw;
-
-        .loginForm {
-            display: flex;
-            flex-direction: column;
-            justify-self: center;
-        }
-
-        .loginButton {
-            @extend .sharedButton;
-            margin-top: 1vh;
-        }
-    
-        .loginText {
-            display: flex;
-            font-size: 1rem;
-            margin-top: 2vh;
-            .link {
-                margin-left: .3rem;
-                color: $t-green;
-            }
-        }
+        padding-left: 10vw;    
     }
+}
+
+.title { 
+    margin-bottom: 10px;
 }

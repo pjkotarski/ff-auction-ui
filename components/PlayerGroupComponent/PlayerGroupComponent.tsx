@@ -31,7 +31,7 @@ export const PlayerGroup = ({ page } : PlayerGroupProps) => {
                 {data.map((player: IPlayer) => { 
                         return <BidHeaderComponent player={player} addButton={true} key={player._id}/> 
                     }
-                    )}
+                )}
             </>    
             }
         </>

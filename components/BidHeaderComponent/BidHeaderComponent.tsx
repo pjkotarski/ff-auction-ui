@@ -16,7 +16,6 @@ export interface BidHeaderComponentProps {
 export const BidHeaderComponent = ({ player, addButton=false, sold=false, timer=false }: BidHeaderComponentProps) => {
     
     const onBidClick = (e) => {
-        console.log('BID CLICKED');
     }
 
     return (

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import { BidsAPI } from '../../shared/api/bids.api';
 import { ActiveBidsElement } from '../ActiveBidsComponent/ActiveBidsComponent';
@@ -9,10 +9,11 @@ import { InfoCard } from '../InfoCard/InfoCard.component';
 import { SearchBox } from '../SearchBox/SearchBox.component';
 
 
+
 export const Auction = () => {
-    
+
     const { data, error } = useSWR('/api/bids/get-bids', url => BidsAPI.getBids(url));
-    const [dataError, setDataError] = useState(false);
+    const [dataError, setDataError] = useState(false);    
 
     if (error) setDataError(true);
 
@@ -27,7 +28,7 @@ export const Auction = () => {
 
 
     return (
-        <div className={styles.bidsContainer}>
+        <div className={`content ${styles.bidsContainer}`}>
             {
                 loading? 
                 <h2>LOADING</h2>

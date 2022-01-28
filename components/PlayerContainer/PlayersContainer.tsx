@@ -6,23 +6,22 @@ import { PlayersHeaderComponent } from '../PlayersHeaderComponent/PlayerHeaderCo
 
 export const PlayersContainer = () => {
 
-    const [page, setPage] = useState(0);
-    const loadMoreRef = useRef();
-    const shouldLoadMore = useInWindow(loadMoreRef);
+  const [page, setPage] = useState(0);
+  const loadMoreRef = useRef();
+  const shouldLoadMore = useInWindow(loadMoreRef);
 
-    useEffect(() => setPage(page+1), [shouldLoadMore]);
+  useEffect(() => setPage(page+1), [shouldLoadMore]);
 
-    const playerGroups = [];
-    for (let i=0; i <= page; i++ ) {
-      playerGroups.push(<PlayerGroup page={i} key={i}/>)
-    }
+  const playerGroups = [];
+  for (let i=0; i <= page; i++ ) {
+    playerGroups.push(<PlayerGroup page={i} key={i}/>)
+  }
 
-    return (
-      <div className={`${styles.playersContainer}`}>
-        <PlayersHeaderComponent/>
-        {playerGroups}
-        <div className={styles.nextDiv} ref={loadMoreRef}></div>
-      </div>
-
-    )
+  return (
+    <div className={`${styles.playersContainer}`}>
+      <PlayersHeaderComponent/>
+      {playerGroups}
+      <div className={styles.nextDiv} ref={loadMoreRef}></div>
+    </div>
+  )
 }
