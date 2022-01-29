@@ -1,7 +1,7 @@
 import { InfoCard } from '../../InfoCard/InfoCard.component';
 import { SearchBox } from '../../SearchBox/SearchBox.component';
 import styles from './AuctionDemo.module.scss';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { Ref, useContext, useEffect, useRef, useState } from 'react';
 import { useInWindow } from '../../../shared/hooks/useInWindow.hook';
 import { PlayerPage } from '../PlayerPage/PlayerPage.component';
 import useSWR from 'swr';
@@ -24,9 +24,9 @@ export const AuctionDemo = () => {
   const [refreshInterval, setRefreshInterval] = useState(0);
   const [showLoadMore, setShowLoadMore] = useState(true);
   const shouldLoadMore = useInWindow(loadMoreRef);
+  const [recentlyAddedPlayer, setRecentlyAddedPlayer] = useState(null);
 
   useEffect(() => {
-    console.log('this was called');
     setPage(page+1);}, [shouldLoadMore])
 
   let { data: playerBids, error, mutate } = useSWR(['/api/demo/bidded-players', searchQuery], DemoApi.searchPlayers, {
@@ -38,10 +38,6 @@ export const AuctionDemo = () => {
       setRefreshInterval(3000);
     }
   }, [demoUser.isRunning]);
-
-  useEffect(() => {
-    console.log('refresh interval chagned');
-  }, [refreshInterval])
 
   const onFinish = () => {
     setShowLoadMore(false);
@@ -59,11 +55,23 @@ export const AuctionDemo = () => {
   }
 
   const addPlayer = (player: IPlayer) => {
+    setRecentlyAddedPlayer(player);
     mutate([...playerBids, player]);
   }
 
   const clearPlayers = () => {
     mutate([]);
+  }
+
+  const scrollToPlayer = (player: IPlayer, ref: any) => {
+
+    if (recentlyAddedPlayer === null) return;
+
+    if (player._id === recentlyAddedPlayer._id) {
+      ref.current.scrollIntoView();
+      return true;
+    }
+    return false;
   }
 
   return (
@@ -75,7 +83,7 @@ export const AuctionDemo = () => {
             <SearchBox/>
             <InfoCard/>
           </div>
-          { !!playerBids && playerBids.map(player => <ActiveBidsElement player={player} isBidded={true} key={`bids_${player._id}`}/>) }
+          { !!playerBids && playerBids.map(player => <ActiveBidsElement player={player} isBidded={true} key={`bids_${player._id}`} scrollTo={scrollToPlayer}/>) }
           {playerPages}
           { error && <AlertComponent error={true} message="An error occured, could not load players."/>}
         </div>

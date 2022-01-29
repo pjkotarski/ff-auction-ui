@@ -2,12 +2,11 @@
 
 .bidsComponent { 
   
-
   width: 22rem;
   height: max-content;
-  border-radius: 5px;
-  border: 1px solid $t-white;
+  border-radius: 8px;
   margin-bottom: 15px;
+  border: 3px solid $t-b-black;
 
   .bidHistory {
     position: relative;
@@ -29,7 +28,8 @@
   background-color: $t-b-black;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .soldText {

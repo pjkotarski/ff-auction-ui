@@ -10,14 +10,22 @@ export interface ActiveBidsComponentProps {
     isBidded: boolean;
     player: IPlayer;
     filterPlayer?: (number) => void;
+    scrollTo?: Function;
 }
 
-export const ActiveBidsElement = ({ player, isBidded, filterPlayer=(_)=>{}}: ActiveBidsComponentProps) => {
+export const ActiveBidsElement = ({ player, isBidded, filterPlayer=(_)=>{}, scrollTo=(_) => {}}: ActiveBidsComponentProps) => {
 
   const { demoUser } = useContext(DemoUserContext);
   const { addPlayer } = useContext(PlayerBidsContext);
   const [bids, updateBids] = useState(player.bids);
   const bidHistoryRef = useRef(null);
+  const activeBidsRef = useRef(null);
+
+  useEffect(() => {
+    if (isBidded) {
+      scrollTo(player, activeBidsRef);
+    }
+  }, []);
 
   useEffect(() => {
     if (bidHistoryRef.current) {
@@ -39,7 +47,7 @@ export const ActiveBidsElement = ({ player, isBidded, filterPlayer=(_)=>{}}: Act
   }
 
   return (
-    <div className={`${styles.bidsComponent}`}>
+    <div className={`${styles.bidsComponent}`} ref={activeBidsRef}>
       <PlayerCard player={player} isShowingBids={isBidded} onBidUpdate={onBidUpdate} />
       { isBidded &&
         <>
@@ -59,5 +67,3 @@ export const ActiveBidsElement = ({ player, isBidded, filterPlayer=(_)=>{}}: Act
     </div>
   )
 }
-
-//!demoUser.isRunning && isBidded
