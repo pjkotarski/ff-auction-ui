@@ -13,7 +13,7 @@ interface PlayerCardProps {
 export const PlayerCard = ({ player = null, isShowingBids, onBidUpdate=(_) => {} }: PlayerCardProps) => {
     
     return (
-        <div className={`${styles.cardContainer} ${isShowingBids ? styles.noBottom : styles.bottom}`}>
+        <div className={`${styles.cardContainer} ${isShowingBids ? styles.showingBids : styles.noBids}`}>
             <div className={styles.lineOne}>
                 <ImageComponent src={playerImageHelper(player._id)} className={styles.playerImage}/>
                 <div className={styles.playerInfo}>

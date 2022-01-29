@@ -1,7 +1,7 @@
 import { InfoCard } from '../../InfoCard/InfoCard.component';
 import { SearchBox } from '../../SearchBox/SearchBox.component';
 import styles from './AuctionDemo.module.scss';
-import { Ref, useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { useInWindow } from '../../../shared/hooks/useInWindow.hook';
 import { PlayerPage } from '../PlayerPage/PlayerPage.component';
 import useSWR from 'swr';
@@ -11,7 +11,6 @@ import { StartTimer } from '../../StartTimerComponent/StartTimer.component';
 import { DemoUserContext, PlayerBidsContext } from '../../../shared/hooks/contexts';
 import { IPlayer } from '../../../shared/types/IPlayer';
 import { LoadingComonent } from '../../LoadingComponent/Loading.component';
-import { setRef } from '@mui/material';
 import { AlertComponent } from '../../AlertComponent/Alert.component';
 
 export const AuctionDemo = () => {

@@ -5,7 +5,8 @@ import { AuthAPI } from './../shared/api/auth.api';
 import { AuthContext } from '../shared/hooks/contexts';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { authResolver } from '../shared/utils/handle-login';
+import Head from 'next/head'
+
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
@@ -30,7 +31,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
   return (
     <AuthContext.Provider value={{authObject, setAuthObject, loading, setLoading}}>
-      <head>
+      <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
         <script
@@ -39,10 +40,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         <script
           src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
           crossorigin></script>
-      </head>
-      <body>
-        <Component {...pageProps} />
-      </body>
+      </Head>
+      <Component {...pageProps} />
     </AuthContext.Provider>
   )
 }

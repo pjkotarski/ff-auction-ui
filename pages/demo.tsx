@@ -6,7 +6,6 @@ import { DemoUserContext } from '../shared/hooks/contexts';
 import Cookies from 'js-cookie';
 import { IDemoUser } from '../shared/types/demo/IDemoUser';
 import { DemoApi } from '../shared/api/demo.api';
-import { IPlayer } from '../shared/types/IPlayer';
 
 export default function DemoPage() {
 
