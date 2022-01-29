@@ -5,23 +5,26 @@ import { DemoApi } from '../../shared/api/demo.api';
 import { DemoUserContext } from '../../shared/hooks/contexts';
 import { IPlayer } from '../../shared/types/IPlayer';
 import { AlertComponent } from '../AlertComponent/Alert.component';
+import { LoadingComonent } from '../LoadingComponent/Loading.component';
 import styles from './BidInputComponent.module.scss';
 
 export interface BidInputComponentProps {
 	player: IPlayer;
 	onBidUpdate?: Function;
+	style?: string;
 }
 
-export const BidInputComponent = ({ player, onBidUpdate=(_)=>{} }: BidInputComponentProps) => {
+export const BidInputComponent = ({ player, onBidUpdate=(_)=>{}, style='' }: BidInputComponentProps) => {
 
 	const { demoUser } = useContext(DemoUserContext);
 	const [bidAmount, setBidAmount] = useState('');
 	const [showError, setShowError] = useState(false);
+	const [loading, setLoading] = useState(false);
 
 	const submitBid = async() => {
 
 		setShowError(false);
-		
+		setLoading(true);
 		try {
 			const postBidResponse = await DemoApi.postBid({
 				player_id: player._id,
@@ -31,24 +34,29 @@ export const BidInputComponent = ({ player, onBidUpdate=(_)=>{} }: BidInputCompo
 				bidderName: demoUser.name
 			});
 
+			setLoading(false);
 			if (postBidResponse.status === 200) 
 				onBidUpdate(postBidResponse.data);
 			
 		} catch(e) {
+			setLoading(false);
 			setShowError(true)
 		}
 	}
 
 	return (
 		<>
-			<div className={`${styles.bidInputPrepend}`}>
-				<span className={`${styles.prependSpan}`}>$</span>
+			<div className={`${styles.flexRow} ${style}`}>
+				{ loading && <LoadingComonent/> }
+				<div className={`${styles.bidInputPrepend}`}>
+					<span className={`${styles.prependSpan}`}>$</span>
+				</div>
+				<input type="tel" className={`${styles.bidInput}`} onChange={(e) => setBidAmount(e.target.value)} value={bidAmount} placeholder="BID" aria-label="Bid Amount" aria-describedby="basic-addon2"/>
+				<button className={`btn  ${styles.submitBid}`} onClick={submitBid} type="button" disabled={!demoUser.isRunning || parseInt(bidAmount, 10) <= 0}>
+					<FontAwesomeIcon icon={faArrowUp}/>
+				</button>
 			</div>
-			<input type="tel" className={`${styles.bidInput}`} onChange={(e) => setBidAmount(e.target.value)} value={bidAmount} placeholder="BID" aria-label="Bid Amount" aria-describedby="basic-addon2"/>
-			<button className={`btn  ${styles.submitBid}`} onClick={submitBid} type="button" disabled={!demoUser.isRunning || bidAmount <= 0}>
-				<FontAwesomeIcon icon={faArrowUp}/>
-			</button>
-			{ showError && <AlertComponent message="please enter a valid bid" error={true}></AlertComponent>}
+			{ showError && <AlertComponent message="Please enter a valid bid" error={true}></AlertComponent>}
 		</>
 	)
 }

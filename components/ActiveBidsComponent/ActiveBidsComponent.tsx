@@ -23,7 +23,11 @@ export const ActiveBidsElement = ({ player, isBidded, filterPlayer=(_)=>{}}: Act
     if (bidHistoryRef.current) {
       bidHistoryRef.current.scrollTop = bidHistoryRef.current.scrollHeight;
     }
-  }, [bidHistoryRef])
+  }, [bidHistoryRef]);
+
+  useEffect(() => {
+    updateBids(player.bids);
+  }, [player.bids])
 
   const onBidUpdate = (newPlayer: IPlayer) => {
     if (isBidded) {
@@ -40,19 +44,20 @@ export const ActiveBidsElement = ({ player, isBidded, filterPlayer=(_)=>{}}: Act
       { isBidded &&
         <>
           <div className={`float-right ${styles.bidHistory}`} ref={bidHistoryRef}>
-            { player.bids &&
-                player.bids.map(bid => {
+            { bids &&
+                bids.map(bid => {
                   return <BidComponent bid={bid} key={bid._id}/>
                 })
             }
           </div>
           <div className={styles.inputContainer}>
-            { !demoUser.isRunning && isBidded ? <p className={styles.soldText}>SOLD</p> 
+            { false ? <p className={styles.soldText}>SOLD</p> 
             : 
-            <BidInputComponent player={player} onBidUpdate={onBidUpdate}/> }                       
+            <BidInputComponent player={player} onBidUpdate={onBidUpdate} style={styles.bidInputPosition}/> }                       
           </div>
         </> }
     </div>
   )
 }
 
+//!demoUser.isRunning && isBidded
