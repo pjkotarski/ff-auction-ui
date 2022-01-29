@@ -63,19 +63,8 @@ export const AuctionDemo = () => {
     mutate([]);
   }
 
-  const scrollToPlayer = (player: IPlayer, ref: any) => {
-
-    if (recentlyAddedPlayer === null) return;
-
-    if (player._id === recentlyAddedPlayer._id) {
-      ref.current.scrollIntoView();
-      return true;
-    }
-    return false;
-  }
-
   return (
-    <PlayerBidsContext.Provider value = {{ playerBids, searchQuery, setSearchQuery, addPlayer, clearPlayers, setRefreshInterval, manuallyRefreshBids }}>
+    <PlayerBidsContext.Provider value = {{ playerBids, searchQuery, setSearchQuery, addPlayer, clearPlayers, setRefreshInterval, manuallyRefreshBids, recentlyAddedPlayer, setRecentlyAddedPlayer }}>
       <div className={`content ${styles.bidsContainer}`}>
         <div className={styles.flexWrapper}>
           <div className={styles.infoBox}>
@@ -83,7 +72,7 @@ export const AuctionDemo = () => {
             <SearchBox/>
             <InfoCard/>
           </div>
-          { !!playerBids && playerBids.map(player => <ActiveBidsElement player={player} isBidded={true} key={`bids_${player._id}`} scrollTo={scrollToPlayer}/>) }
+          { !!playerBids && playerBids.map(player => <ActiveBidsElement player={player} isBidded={true} key={`bids_${player._id}`}/>) }
           {playerPages}
           { error && <AlertComponent error={true} message="An error occured, could not load players."/>}
         </div>

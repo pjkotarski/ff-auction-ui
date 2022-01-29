@@ -31,6 +31,8 @@ interface PlayerBidsContextInterface {
 	clearPlayers: Function;
 	manuallyRefreshBids: Function;
 	setSearchQuery: Function;
+	recentlyAddedPlayer: IPlayer;
+	setRecentlyAddedPlayer: Function;
 }
 
 export const PlayerBidsContext = React.createContext<PlayerBidsContextInterface>({
@@ -40,5 +42,7 @@ export const PlayerBidsContext = React.createContext<PlayerBidsContextInterface>
 	addPlayer: (_) => {},
 	clearPlayers: () => {},
 	manuallyRefreshBids: () => {},
-	setSearchQuery: (_) => {}
+	setSearchQuery: (_) => {},
+	recentlyAddedPlayer: null,
+	setRecentlyAddedPlayer: (_) => {}
 });

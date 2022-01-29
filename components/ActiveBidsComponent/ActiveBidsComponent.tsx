@@ -10,22 +10,22 @@ export interface ActiveBidsComponentProps {
     isBidded: boolean;
     player: IPlayer;
     filterPlayer?: (number) => void;
-    scrollTo?: Function;
 }
 
-export const ActiveBidsElement = ({ player, isBidded, filterPlayer=(_)=>{}, scrollTo=(_) => {}}: ActiveBidsComponentProps) => {
+export const ActiveBidsElement = ({ player, isBidded, filterPlayer=(_)=>{}}: ActiveBidsComponentProps) => {
 
-  const { demoUser } = useContext(DemoUserContext);
-  const { addPlayer } = useContext(PlayerBidsContext);
+  const { addPlayer, recentlyAddedPlayer } = useContext(PlayerBidsContext);
   const [bids, updateBids] = useState(player.bids);
   const bidHistoryRef = useRef(null);
-  const activeBidsRef = useRef(null);
+  const activeBidsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (isBidded) {
-      scrollTo(player, activeBidsRef);
+    if (isBidded && recentlyAddedPlayer && recentlyAddedPlayer._id === player._id) {
+      activeBidsRef.current.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
-  }, []);
+  }, [recentlyAddedPlayer]);
 
   useEffect(() => {
     if (bidHistoryRef.current) {
