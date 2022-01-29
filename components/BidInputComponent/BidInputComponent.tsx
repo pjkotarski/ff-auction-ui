@@ -48,9 +48,7 @@ export const BidInputComponent = ({ player, onBidUpdate=(_)=>{}, style='' }: Bid
 		<>
 			<div className={`${styles.flexRow} ${style}`}>
 				{ loading && <LoadingComonent/> }
-				<div className={`${styles.bidInputPrepend}`}>
-					<span className={`${styles.prependSpan}`}>$</span>
-				</div>
+				<span className={`${styles.prependSpan}`}>$</span>
 				<input type="tel" className={`${styles.bidInput}`} onChange={(e) => setBidAmount(e.target.value)} value={bidAmount} placeholder="BID" aria-label="Bid Amount" aria-describedby="basic-addon2"/>
 				<button className={`btn  ${styles.submitBid}`} onClick={submitBid} type="button" disabled={!demoUser.isRunning || parseInt(bidAmount, 10) <= 0}>
 					<FontAwesomeIcon icon={faArrowUp}/>

@@ -27,13 +27,13 @@
 	border-radius: 5px;
 }
 
-.bidInputPrepend {
-	background: transparent;
 
 	.prependSpan {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		font-size: 20px;
 		background: transparent;
 		color: $t-green;
 		border: none;
 	}
-}
