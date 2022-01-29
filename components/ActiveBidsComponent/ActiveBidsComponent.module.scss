@@ -22,6 +22,7 @@
 
 .inputContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -29,16 +30,6 @@
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 5px;
-  .bidInputPrepend {
-    background: transparent;
-
-    .prependSpan {
-      font-size: 20px;
-      background: transparent;
-      color: $t-green;
-      border: none;
-    }
-  }
 }
 
 .soldText {
@@ -48,4 +39,9 @@
   border-radius: 3px;
   padding: 0 0.5rem;
   margin: 0px;
+}
+
+.bidInputPosition {
+  position: relative;
+  left: 3px;
 }
