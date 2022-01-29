@@ -26,28 +26,13 @@
         padding-left: 5px;
         margin-right: 1vw;
         flex-grow: 1;
+        border: none;
+        background-color: $t-b-black-o;
+        border-bottom: 1px solid $t-green;
+        color: white;
 
-        @include xs { 
-            border: none;
-            background-color: $t-b-black-o;
-            border-bottom: 1px solid $t-green;
+        ::placeholder {
             color: white;
-
-            ::placeholder {
-                color: white;
-            }
-            
-        }
-
-        @include md {
-            border-radius: 5px;
-            border: .1vw solid $t-green;
-            background-color: white;
-            color: black;
-            ::placeholder {
-                color: black;
-                opacity: 1;
-            }
         }
     }
 

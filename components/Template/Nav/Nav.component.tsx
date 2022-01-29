@@ -20,18 +20,15 @@ export const Nav = () => {
                 <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link href="/auction"><a className={`nav-link ${styles.tabTitle} ${router.pathname === '/auction'? styles.active : ''}`}>Auction</a></Link>
+                            <Link href="/auction"><a className={`nav-link ${styles.tabTitle} ${router.pathname === '/auction'? styles.active : ''}`}>Demo</a></Link>
                         </li>
                         <li className="nav-item">
-                            <Link href="/profile"><a className={`nav-link ${styles.tabTitle} ${router.pathname === '/profile'? styles.active : ''}`}>Profile</a></Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link href="/commissioner"><a className={`nav-link ${styles.tabTitle} ${router.pathname === '/commissioner'? styles.active : ''}`}>Commissioner</a></Link>
+                            <Link href="/profile"><a className={`nav-link ${styles.tabTitle} ${router.pathname === '/profile'? styles.active : ''}`}>About</a></Link>
                         </li>
                     </ul>
                 
                     <span className="navbar-text">
-                        <Link href="/about"><a className={`${styles.tabTitle} ${router.pathname === '/about'? styles.active : ''}`}>About</a></Link>
+                        <Link href="/about"><a className={`${styles.tabTitle} ${router.pathname === '/about'? styles.active : ''}`}>Pierce K</a></Link>
                     </span>
                 </div>
 

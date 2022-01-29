@@ -16,13 +16,12 @@ export const Navbar = () => {
 
             <div className={styles.tabContainer}>
                 <button className={`${styles.tabTitle} ${router.pathname === '/auction'? styles.active : styles.inactive}`} onClick={() => router.push('/auction')}>Auction</button>
-                <button className={`${styles.tabTitle} ${router.pathname === '/profile'? styles.active : styles.inactive}`} onClick={() => router.push('/profile')}>Profile</button>
-                <button className={`${styles.tabTitle} ${router.pathname === '/commissioner' ? styles.active : styles.inactive}`} onClick={() => router.push('/commissioner')}>Commissioner</button>
+                <button className={`${styles.tabTitle} ${router.pathname === '/profile'? styles.active : styles.inactive}`} onClick={() => router.push('/profile')}>About</button>
             </div>
 
 
             <div className={styles.tabContainer}>
-                <button className={`${styles.tabTitle} ${router.pathname === '/about'? styles.active : styles.inactive}`} onClick={() => router.push('/about')}>About</button>
+                <button className={`${styles.tabTitle} ${router.pathname === '/about'? styles.active : styles.inactive}`} onClick={() => router.push('/about')}>Pierce K</button>
             </div>
         </div>
     )

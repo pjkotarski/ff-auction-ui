@@ -14,8 +14,10 @@ interface InputProps {
 export const Button = ({ onClick, className='', children, disabled = false, type=ButtonTypes.button, primaryColor = true }: InputProps) => {
 
     return (
-        <div className={`${className}`}>
-            <button className={`${styles.button} ${primaryColor ? styles.primary : styles.secondary}`} onClick={onClick} disabled={disabled} >{children}</button>
+        <div className={`${className}`} tabIndex={0} onKeyPress={(e) => {
+            if (e.key === 'Enter') onClick();
+        }}>
+            <button className={`${styles.button} ${primaryColor ? styles.primary : styles.secondary}`} onClick={onClick} disabled={disabled}>{children}</button>
         </div>
     )
 }
