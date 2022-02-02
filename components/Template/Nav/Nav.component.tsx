@@ -11,7 +11,7 @@ export const Nav = () => {
         <nav className={`navbar navbar-expand-lg navbar-dark bg-dark`}>
             <div className="container-fluid">
 
-                <Link href="/home"><a className={styles.titleLink}><Title className="navbar-brand"/></a></Link>
+                <Link href="/demo"><a className={styles.titleLink}><Title className="navbar-brand"/></a></Link>
 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -20,16 +20,13 @@ export const Nav = () => {
                 <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link href="/auction"><a className={`nav-link ${styles.tabTitle} ${router.pathname === '/auction'? styles.active : ''}`}>Demo</a></Link>
+                            <Link href="/demo"><a className={`nav-link ${styles.tabTitle} ${router.pathname === '/demo'? styles.active : ''}`}>Demo</a></Link>
                         </li>
                         <li className="nav-item">
-                            <Link href="/profile"><a className={`nav-link ${styles.tabTitle} ${router.pathname === '/profile'? styles.active : ''}`}>About me</a></Link>
+                            <a href="http://www.google.com" className={`nav-link ${styles.tabTitle}`}>About me</a>
                         </li>
                     </ul>
                 
-                    <span className="navbar-text">
-                        <Link href="/about"><a className={`${styles.tabTitle} ${router.pathname === '/about'? styles.active : ''}`}>Pierce K</a></Link>
-                    </span>
                 </div>
 
             </div>
