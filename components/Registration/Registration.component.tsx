@@ -1,4 +1,4 @@
-import Link from 'next/Link';
+import Link from 'next/link';
 import { Input } from '../shared/Input/Input.component';
 import { Title } from '../shared/Title/Title.component';
 import styles from './Registration.module.scss';
