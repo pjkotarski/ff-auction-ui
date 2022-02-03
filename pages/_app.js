@@ -5,7 +5,7 @@ import { AuthAPI } from './../shared/api/auth.api';
 import { AuthContext } from '../shared/hooks/contexts';
 import { useEffect, useState } from 'react';
 import Head from 'next/head'
-
+import Script from 'next/script';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
@@ -14,32 +14,31 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [mounted, isMounted] = useState(false);
   
   
-  useEffect(async() => {
+  useEffect(() => {
     import("bootstrap/dist/js/bootstrap");
     setLoading(true);
     isMounted(true);
 
-    try {
-      await AuthAPI.authenticateToken('/api/auth/resolve-token');
-      setLoading(false);
-    } catch(e) {
-      if (!e.response || e.response.status !== 500) {
-      } 
+    const fetchStartData = async() => {
+      try {
+        await AuthAPI.authenticateToken('/api/auth/resolve-token');
+        setLoading(false);
+      } catch(e) {
+        if (!e.response || e.response.status !== 500) {
+        } 
+      }
     }
+    fetchStartData();
   }, []);
 
   return (
     <AuthContext.Provider value={{authObject, setAuthObject, loading, setLoading}}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
-        <script
-          src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"
-          crossorigin></script>
-        <script
-          src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
-          crossorigin></script>
       </Head>
+      <Script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></Script>
+      <Script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js" crossorigin></Script>
+      <Script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js" crossorigin></Script>
       { mounted &&
         <Component {...pageProps} />
       }

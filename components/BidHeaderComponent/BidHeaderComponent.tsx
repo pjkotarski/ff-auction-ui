@@ -44,7 +44,7 @@ export const BidHeaderComponent = ({ player, addButton=false, sold=false, timer=
                         } else if (sold) {
                             return <p className={styles.soldText}>SOLD</p>
                         } else if (timer) {
-                            return <TimerComponent expTime={new Date(1637338926792)}/>
+                            return <TimerComponent/>
                         }
                     })()
                 }

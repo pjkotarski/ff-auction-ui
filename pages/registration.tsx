@@ -49,13 +49,13 @@ export default function RegistrationPage() {
     }
 
     const pages =  existingLeague ? [
-        <AddLeague moveForward={forwardsPage} configExistingLeague={joinLeague} noLeague={noLeague}/>,
-        <RegisterUser configureUser={configureUser}/>,
+        <AddLeague moveForward={forwardsPage} configExistingLeague={joinLeague} noLeague={noLeague} key={'addLeagueExisting'}/>,
+        <RegisterUser configureUser={configureUser} key={'registerUserExisting'}/>,
     ]
     : [
-        <AddLeague moveForward={forwardsPage} configExistingLeague={joinLeague} noLeague={noLeague}/>,
-        <RegisterLeague forwardPage={forwardsPage} configureLeague={configureLeague}/>,
-        <RegisterUser configureUser={configureUser}/>
+        <AddLeague moveForward={forwardsPage} configExistingLeague={joinLeague} noLeague={noLeague} key={'addLeague'}/>,
+        <RegisterLeague forwardPage={forwardsPage} configureLeague={configureLeague} key={'registerLeague'}/>,
+        <RegisterUser configureUser={configureUser} key={'registerUser'}/>
     ]
 
     const resolvePage = (index: number) => {

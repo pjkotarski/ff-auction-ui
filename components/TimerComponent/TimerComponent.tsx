@@ -15,23 +15,23 @@ export const TimerComponent = ()  => {
 		return moment(expiration_time).isBefore(moment());
 	}
 
-	const getTimeLeft = (expiration_time) => {
-		if (expiration_time) {
-
-			if (moment(expiration_time).isBefore(moment())) {
-				manuallyRefreshBids();
-				setRefreshInterval(0);
-				return null;
-			}
-
-			const expMoment = moment(expiration_time, 'HH:mm:ss');
-			const nowMoment = moment(new Date(), 'HH:mm:ss');
-			return moment(expMoment.diff(nowMoment)).format('m:ss');
-		} 
-		return null;
-	}
-
 	useEffect(() => {
+
+		const getTimeLeft = (expiration_time) => {
+			if (expiration_time) {
+	
+				if (moment(expiration_time).isBefore(moment())) {
+					manuallyRefreshBids();
+					setRefreshInterval(0);
+					return null;
+				}
+	
+				const expMoment = moment(expiration_time, 'HH:mm:ss');
+				const nowMoment = moment(new Date(), 'HH:mm:ss');
+				return moment(expMoment.diff(nowMoment)).format('m:ss');
+			} 
+			return null;
+		}
 
 		if (demoUser.expiration_time && !checkExpired(demoUser.expiration_time)) {
 

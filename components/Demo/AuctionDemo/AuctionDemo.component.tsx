@@ -26,7 +26,8 @@ export const AuctionDemo = () => {
   const [recentlyAddedPlayer, setRecentlyAddedPlayer] = useState(null);
 
   useEffect(() => {
-    setPage(page+1);}, [shouldLoadMore])
+    setPage(page+1);
+  }, [shouldLoadMore]);
 
   let { data: playerBids, error, mutate } = useSWR(['/api/demo/bidded-players', searchQuery], DemoApi.searchPlayers, {
     refreshInterval: refreshInterval

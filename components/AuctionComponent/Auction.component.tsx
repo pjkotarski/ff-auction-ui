@@ -44,7 +44,7 @@ export const Auction = () => {
                                 <InfoCard/>
                             </div>
                             {data.map(player => {
-                            return <ActiveBidsElement player={player}/>
+                            return <ActiveBidsElement player={player} isBidded={false} key={player._id}/>
                             })}
                     </Masonry>
                 </>

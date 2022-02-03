@@ -1,8 +1,8 @@
-import { Router } from 'next/dist/client/router';
 import { AuthAPI } from '../api/auth.api';
 import { IUser } from '../types/IUser';
+import { NextRouter } from 'next/router';
 
-export const authResolver = async(loginData: any, router: Router , setContext: Function) => {
+export const authResolver = async(loginData: any, router: NextRouter , setContext: Function) => {
     
     try {
         const user: IUser = loginData;
@@ -21,7 +21,7 @@ export const authResolver = async(loginData: any, router: Router , setContext: F
 }
 
 
-export const handleGoogleLogin = async(googleUser: any, router: Router, setContext: Function) => {
+export const handleGoogleLogin = async(googleUser: any, router: NextRouter, setContext: Function) => {
 
     let user: IUser; 
 
