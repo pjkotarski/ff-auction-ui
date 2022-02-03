@@ -1,5 +1,5 @@
 import { useRouter } from 'next/dist/client/router';
-import Link from 'next/Link';
+import Link from 'next/link';
 import { Title } from '../../shared/Title/Title.component';
 import styles from './Nav.module.scss';
 
