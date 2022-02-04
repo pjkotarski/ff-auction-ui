@@ -11,6 +11,8 @@ export default function DemoPage() {
 
   const [demoUser, setDemoUser ] = useState<IDemoUser>(null);
 
+  const [balance, setBalance] = useState(null);
+
   const resolveUser = async (userId: string) => {
     try {
       const user = await DemoApi.getUser(userId);
@@ -51,7 +53,7 @@ export default function DemoPage() {
 
 
   return (
-    <DemoUserContext.Provider value={{ demoUser, setExpirationTimeOnUser, setIsRunningOnUser }}>
+    <DemoUserContext.Provider value={{ demoUser, balance, setExpirationTimeOnUser, setIsRunningOnUser, setBalance }}>
       <Template>
         { demoUser === null ? 
           <RegisterDemo createUser={createUser}/>

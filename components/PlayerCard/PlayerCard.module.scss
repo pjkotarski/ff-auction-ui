@@ -54,9 +54,10 @@
     }
 
     .lineTwo { 
-        display: inline-flex;
-        justify-content: flex-end;
-        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
         box-sizing: border-box;
         margin-bottom: 3px;
 

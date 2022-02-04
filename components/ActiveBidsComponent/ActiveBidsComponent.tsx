@@ -14,6 +14,7 @@ export interface ActiveBidsComponentProps {
 
 export const ActiveBidsElement = ({ player, isBidded, filterPlayer=(_)=>{}}: ActiveBidsComponentProps) => {
 
+  const { demoUser } = useContext(DemoUserContext);
   const { addPlayer, recentlyAddedPlayer } = useContext(PlayerBidsContext);
   const [bids, updateBids] = useState(player.bids);
   const bidHistoryRef = useRef(null);
@@ -59,7 +60,7 @@ export const ActiveBidsElement = ({ player, isBidded, filterPlayer=(_)=>{}}: Act
             }
           </div>
           <div className={styles.inputContainer}>
-            { false ? <p className={styles.soldText}>SOLD</p> 
+            { !demoUser.isRunning ? <p className={styles.soldText}>SOLD</p> 
             : 
             <BidInputComponent player={player} onBidUpdate={onBidUpdate} style={styles.bidInputPosition}/> }                       
           </div>

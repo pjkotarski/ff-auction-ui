@@ -19,8 +19,7 @@ export const PlayerCard = ({ player = null, isShowingBids, onBidUpdate=(_) => {}
                 <div className={styles.playerInfo}>
                     <p className={styles.playerName}>{player.fullName}</p>
                     <div className={styles.playerDetails}>
-                        <p>{player.teamAbbr} / {player.position}</p>
-                        <p className={styles.injuryStatus}>{player.injuryStatus}</p>
+                        <p>{player.teamAbbr} — {player.position}</p>
                     </div>
                 </div>
             </div>

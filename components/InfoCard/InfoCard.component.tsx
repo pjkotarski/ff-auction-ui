@@ -6,10 +6,9 @@ import styles from './InfoCard.module.scss';
 
 export const InfoCard = () => {
 
-	const { demoUser } = useContext(DemoUserContext);
+	const { demoUser, balance, setBalance } = useContext(DemoUserContext);
 	const { playerBids } = useContext(PlayerBidsContext);
 
-	const [ balance, setBalance ] = useState(null);
 	const [ ongoingBids, setOngoingBids ] = useState(findPlayerBids(playerBids, demoUser._id));
 
 	useEffect(() => {
@@ -18,8 +17,7 @@ export const InfoCard = () => {
 
 	useEffect(() => {
 		setBalance(300 - calcBiddedAmount(ongoingBids));
-	}, [ongoingBids])
-    
+	}, [ongoingBids]);
 
 	return (
 		<div className={styles.infoCard}>

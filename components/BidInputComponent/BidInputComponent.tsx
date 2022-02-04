@@ -1,6 +1,6 @@
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ChangeEvent, useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { DemoApi } from '../../shared/api/demo.api';
 import { DemoUserContext } from '../../shared/hooks/contexts';
 import { IPlayer } from '../../shared/types/IPlayer';
@@ -16,12 +16,18 @@ export interface BidInputComponentProps {
 
 export const BidInputComponent = ({ player, onBidUpdate=(_)=>{}, style='' }: BidInputComponentProps) => {
 
-	const { demoUser } = useContext(DemoUserContext);
+	const { demoUser, balance } = useContext(DemoUserContext);
 	const [bidAmount, setBidAmount] = useState('');
 	const [showError, setShowError] = useState(false);
 	const [loading, setLoading] = useState(false);
 
 	const submitBid = async() => {
+
+		if (parseInt(bidAmount, 10) > balance) {
+			setShowError(true);
+			setBidAmount('');
+			return;
+		}
 
 		setShowError(false);
 		setLoading(true);
@@ -34,6 +40,7 @@ export const BidInputComponent = ({ player, onBidUpdate=(_)=>{}, style='' }: Bid
 				bidderName: demoUser.name
 			});
 
+			setBidAmount('');
 			setLoading(false);
 			if (postBidResponse.status === 200) 
 				onBidUpdate(postBidResponse.data);

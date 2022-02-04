@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { DemoApi } from '../../shared/api/demo.api';
 import { DemoUserContext, PlayerBidsContext } from '../../shared/hooks/contexts';
 import { Button } from '../shared/Button/Button.component';

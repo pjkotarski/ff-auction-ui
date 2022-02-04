@@ -13,14 +13,18 @@ export const AuthContext = React.createContext({
 
 interface UserContextInterface {
 	demoUser: IDemoUser;
+	balance: number;
 	setExpirationTimeOnUser: (Date) => void,
-	setIsRunningOnUser: (boolean) => void
+	setIsRunningOnUser: (boolean) => void,
+	setBalance: (number) => void
 }
 
 export const DemoUserContext = React.createContext<UserContextInterface>({
   demoUser: null,
+	balance: null,
 	setExpirationTimeOnUser: () => {},
-	setIsRunningOnUser: () => {}
+	setIsRunningOnUser: () => {},
+	setBalance: () => {}
 });
 
 interface PlayerBidsContextInterface {
