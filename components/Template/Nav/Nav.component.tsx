@@ -23,7 +23,7 @@ export const Nav = () => {
                             <Link href="/demo"><a className={`nav-link ${styles.tabTitle} ${router.pathname === '/demo'? styles.active : ''}`}>Demo</a></Link>
                         </li>
                         <li className="nav-item">
-                            <a href="http://www.google.com" className={`nav-link ${styles.tabTitle}`}>About me</a>
+                            <a href="https://piercek.com/" className={`nav-link ${styles.tabTitle}`}>About me</a>
                         </li>
                     </ul>
                 
